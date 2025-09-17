@@ -1,50 +1,87 @@
 package com.itb.inf2em.pizzariaf.model.entity;
 
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "Pedido")
 public class Pedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String data_hora_pedido;
-    private String data_hora_entrega;
-    private String status;
-    private String valor_total;
+    @Column(length = 45, nullable = false)
 
-    public Long getId() {
+    private double valorPedido;
+    @Column(length = 45, nullable = false)
+
+    private LocalDateTime data_hora_pedido;
+    @Column( nullable = false)
+
+
+    private LocalDateTime data_hora_entrega;
+    @Column( nullable = true)
+
+
+    private boolean codstatus;
+
+
+    private String status;
+
+
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    public long getId() {
         return id;
+    }
+
+    public void setStatus(String Status) {
+        this.status = status;
+    }
+    public String getNome() {
+        return status;
+    }
+
+    public boolean isCodstatus() {
+        return codstatus;
+    }
+
+    public void setCodstatus(boolean codstatus) {
+        this.codstatus = codstatus;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public String getData_hora_pedido() {
+    public double getValorPedido() {
+        return valorPedido;
+    }
+
+    public void setValorPedido(double valorPedido) {
+        this.valorPedido = valorPedido;
+    }
+
+    public LocalDateTime getData_hora_pedido() {
         return data_hora_pedido;
     }
 
-    public void setData_hora_pedido(String data_hora_pedido) {
+    public void setData_hora_pedido(LocalDateTime data_hora_pedido) {
         this.data_hora_pedido = data_hora_pedido;
     }
 
-    public String getData_hora_entrega() {
+    public LocalDateTime getData_hora_entrega() {
         return data_hora_entrega;
     }
 
-    public void setData_hora_entrega(String data_hora_entrega) {
+    public void setData_hora_entrega(LocalDateTime data_hora_entrega) {
         this.data_hora_entrega = data_hora_entrega;
     }
 
     public String getStatus() {
         return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getValor_total() {
-        return valor_total;
-    }
-
-    public void setValor_total(String valor_total) {
-        this.valor_total = valor_total;
     }
 }

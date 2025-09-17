@@ -1,41 +1,62 @@
 package com.itb.inf2em.pizzariaf.model.entity;
 
+
+import jakarta.persistence.*;
+
+@Entity
+
+@Table(name = "Telefone")
+
+
+
 public class Telefone {
 
-    private Long id;
-    private int ddd;
-    private int numero;
-    private String cod_status;
 
-    public Long getId() {
-        return id;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private long id;
+    @Column(length = 45, nullable = false)
 
-    public int getDdd() {
-        return ddd;
-    }
+    private String ddd;
+    @Column(length = 5, nullable = false)
 
-    public void setDdd(int ddd) {
+    private String numero;
+    @Column(length = 15, nullable = false)
+
+    private Boolean codStatus;
+
+    public void setDDD(String ddd) {
         this.ddd = ddd;
     }
-
-    public int getNumero() {
-        return numero;
+    public String getDdd() {
+        return ddd;
     }
-
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
-    public String getCod_status() {
-        return cod_status;
+    public Boolean getCodStatus() {
+        return codStatus;
     }
 
-    public void setCod_status(String cod_status) {
-        this.cod_status = cod_status;
+    public void setCodStatus(Boolean codStatus) {
+        this.codStatus = codStatus;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setDdd(String ddd) {
+        this.ddd = ddd;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
